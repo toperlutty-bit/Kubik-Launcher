@@ -1,0 +1,11 @@
+{
+  "version": "0.5.0",
+  "notes": "• Окно автообновления\n• Новый главный экран: 3D-персонаж, крылья и нимб\n• Новый Click GUI и 34 функции в игре",
+  "pub_date": "2026-10-27T12:16:04Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZTZIa1Vqc1hDeWhlZFhWeTNmcWdWS0hua1dFM1NmYW5WU0hKVGpJMEY2MExWaVdMVWJJcDBPN1Yxa1VBU2s0WEE5UEMxWGFjTUE3QlVkUEZuU243MGhkRERLWDZNMkE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTAzMTk4CWZpbGU6S3ViaWsgTGF1bmNoZXJfMC41LjBfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuNS4wCnBOYXR5MUV2cEtZQlRVbFlvMFVwNlZpMFFjWlJvMjhDSC8vNDl4d1FpNXhuYmNWMGhKSEhvdnduRDNDcFJHLzBndjlNaUpWc0ZVNVEvamxHZEtDM0RnPT0K",
+      "url": "https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/Kubik-Launcher_0.5.0_x64-setup.exe"
+    }
+  }
+}
