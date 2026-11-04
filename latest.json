@@ -1,11 +1,11 @@
 {
-  "version": "0.5.0",
-  "notes": "• Окно автообновления\n• Новый главный экран: 3D-персонаж, крылья и нимб\n• Новый Click GUI и 34 функции в игре",
-  "pub_date": "2026-10-27T12:16:04Z",
+  "version": "0.9.4",
+  "notes": "• HUD можно двигать мышью: откройте чат и тяните блоки, ПКМ — вернуть на место\n• Множество новых настроек",
+  "pub_date": "2026-10-28T09:42:58Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZTZIa1Vqc1hDeWhlZFhWeTNmcWdWS0hua1dFM1NmYW5WU0hKVGpJMEY2MExWaVdMVWJJcDBPN1Yxa1VBU2s0WEE5UEMxWGFjTUE3QlVkUEZuU243MGhkRERLWDZNMkE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTAzMTk4CWZpbGU6S3ViaWsgTGF1bmNoZXJfMC41LjBfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuNS4wCnBOYXR5MUV2cEtZQlRVbFlvMFVwNlZpMFFjWlJvMjhDSC8vNDl4d1FpNXhuYmNWMGhKSEhvdnduRDNDcFJHLzBndjlNaUpWc0ZVNVEvamxHZEtDM0RnPT0K",
-      "url": "https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/Kubik-Launcher_0.5.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZTZIa1Vqc1hDeWlwZ2xjdVlxa0pkUWp4SlJ4OG1JNERrNEpMQVEveVpNYUxpOUZ5RE9wS2FFN2pPS0Z3MEJyUWhVemIrbzZ0WFdBSFRISURFc2lnMGNoMmg4ZkJIZlFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTgwNTc3CWZpbGU6S3ViaWsgTGF1bmNoZXJfMC45LjRfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuOS40CmZwa2kyZmFFM1hUaTNSNUpFZkxoYUkxV0FWTmYrZi9oSVFpQktjWVhQNXc3TDZrdkpSLzhjSWtyMVk0RE1GdUJNdzZvZFZRWUZKY25mOG14MklSb0NBPT0K",
+      "url": "https://github.com/toperlutty-bit/Kubik-Launcher/releases/download/v0.9.4/Kubik-Launcher_0.9.4_x64-setup.exe"
     }
   }
 }

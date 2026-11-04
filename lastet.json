@@ -1,0 +1,11 @@
+{
+  "version": "0.9.4",
+  "notes": "• HUD можно двигать мышью: откройте чат и тяните блоки, ПКМ — вернуть на место\n• Множество новых настроек",
+  "pub_date": "2026-10-28T09:42:58Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTZTZIa1Vqc1hDeWlwZ2xjdVlxa0pkUWp4SlJ4OG1JNERrNEpMQVEveVpNYUxpOUZ5RE9wS2FFN2pPS0Z3MEJyUWhVemIrbzZ0WFdBSFRISURFc2lnMGNoMmg4ZkJIZlFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTgwNTc3CWZpbGU6S3ViaWsgTGF1bmNoZXJfMC45LjRfeDY0LXNldHVwLmV4ZQl2ZXJzaW9uOjAuOS40CmZwa2kyZmFFM1hUaTNSNUpFZkxoYUkxV0FWTmYrZi9oSVFpQktjWVhQNXc3TDZrdkpSLzhjSWtyMVk0RE1GdUJNdzZvZFZRWUZKY25mOG14MklSb0NBPT0K",
+      "url": "https://github.com/toperlutty-bit/Kubik-Launcher/releases/download/v0.9.4/Kubik-Launcher_0.9.4_x64-setup.exe"
+    }
+  }
+}
