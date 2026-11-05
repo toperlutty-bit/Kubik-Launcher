@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07120c">
+<title>Kubik для Mac</title>
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#07120c;--card:#10251a;--card2:#163322;--line:#1f4a31;--green:#3ddc84;--green2:#22b566;--text:#e8f7ee;--muted:#8fb8a0;--warn:#ffcc66}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{background:radial-gradient(120% 50% at 50% -10%,#1b4d31 0%,var(--bg) 60%) fixed;min-height:100vh}
+main{max-width:720px;margin:0 auto;padding:28px 16px 60px}
+a{color:var(--green)}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.top img{width:44px;height:44px}
+.top h1{margin:0;font-size:24px}.top h1 span{color:var(--green)}
+.back{margin-left:auto;font-size:14px;text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:99px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 16px;border-radius:12px;background:var(--green);color:#04210f;font-weight:700;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green2)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+.muted{color:var(--muted)}
+ol{margin:0;padding-left:0;list-style:none;counter-reset:s}
+ol>li{counter-increment:s;position:relative;padding:0 0 18px 46px}
+ol>li:last-child{padding-bottom:0}
+ol>li:before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:10px;background:rgba(61,220,132,.14);border:1px solid rgba(61,220,132,.4);color:var(--green);font-weight:700;display:grid;place-items:center}
+ol>li b{display:block;margin-bottom:2px}
+code{background:#0b1a11;border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:14px}
+.note{border-color:rgba(255,204,102,.4);background:linear-gradient(180deg,#2a2614,#1c1a0f)}
+.note b{color:var(--warn)}
+kbd{background:#0b1a11;border:1px solid var(--line);border-bottom-width:2px;padding:1px 7px;border-radius:6px;font:13px ui-monospace,monospace}
+h2{font-size:18px;margin:24px 0 10px}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <img src="../icon.svg" alt="">
+    <h1>Kubik для <span>Mac</span></h1>
+    <a class="back" href="../">← Kubik Mobile</a>
+  </div>
+
+  <div class="card">
+    <p style="margin-top:0">Kubik Launcher пока работает только на Windows. Сам мод <b>Kubik Client</b> работает и на Mac: с меню на <kbd>правый Shift</kbd>, HUD, визуалами и Click GUI.</p>
+    <div class="grid">
+      <a class="btn" href="../downloads/kubik-client-1.21.11.jar" download>⬇ Kubik Client (.jar)</a>
+      <a class="btn ghost" href="https://prismlauncher.org/download/mac/" target="_blank" rel="noopener">Prism Launcher для Mac</a>
+    </div>
+    <p class="muted" style="margin-bottom:0;font-size:14px">Для Minecraft <b>1.21.11</b> + Fabric. Подходит для Mac на Intel и Apple Silicon (M1–M4).</p>
+  </div>
+
+  <h2>Установка за 5 минут</h2>
+  <div class="card">
+    <ol>
+      <li><b>Установи Prism Launcher</b>Это бесплатный лаунчер для Mac. Скачай его по кнопке выше и перетащи в «Программы».</li>
+      <li><b>Войди в аккаунт</b>Prism: справа сверху <i>Accounts → Manage Accounts → Add Microsoft</i>.</li>
+      <li><b>Создай сборку</b><i>Add Instance</i> → версия <code>1.21.11</code> → внизу <i>Mod loader: Fabric</i> → <i>OK</i>.</li>
+      <li><b>Добавь Fabric API</b>Выбери сборку → <i>Edit</i> → <i>Mods</i> → <i>Download mods</i> → найди <code>Fabric API</code> → <i>Select</i> → <i>Review and confirm</i>.</li>
+      <li><b>Добавь Kubik Client</b>Там же, во вкладке <i>Mods</i>, нажми <i>Add file</i> и выбери скачанный <code>kubik-client-1.21.11.jar</code>.</li>
+      <li><b>Играй</b>Нажми <i>Launch</i>. В игре открой меню Kubik на <kbd>правый Shift</kbd>.</li>
+    </ol>
+  </div>
+
+  <div class="card note">
+    <b>⚠ Что пока не работает на Mac</b>
+    <p style="margin:6px 0 0">Подписки <b>Plus / Elite</b> выдаются через Kubik Launcher, а его на Mac пока нет. Поэтому без него доступны только бесплатные функции. Версия лаунчера для Mac в планах.</p>
+  </div>
+
+  <div class="card">
+    <b>Если Mac пишет «не удаётся открыть»</b>
+    <p class="muted" style="margin:6px 0 0">Это про Prism Launcher, а не про мод. Открой <i>Системные настройки → Конфиденциальность и безопасность</i>, пролистай вниз и нажми <i>«Всё равно открыть»</i>.</p>
+  </div>
+</main>
+</body>
+</html>
