@@ -1,6 +1,6 @@
 // Kubik Mobile: офлайн-кэш оболочки приложения.
 // Данные (версия, новости, скины) всегда берутся из сети, при ошибке — из кэша.
-const CACHE = "kubik-mobile-v1";
+const CACHE = "kubik-mobile-v2";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", e => {

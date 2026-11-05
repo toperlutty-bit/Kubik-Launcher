@@ -172,47 +172,71 @@ const MANIFEST = "https://raw.githubusercontent.com/toperlutty-bit/kubik-launche
 const KEY = "kubik-mobile-v1";
 
 const VISUALS = {
-  "Интерфейс": [
-    ["hudEditor","HUD-редактор","Двигай блоки HUD мышью"],
-    ["watermark","Watermark","Kubik, FPS, пинг и время"],
-    ["arrayList","ArrayList","Список включённых функций"],
-    ["hotbar","Свой хотбар","Скруглённый, с анимацией"],
-    ["targetHud","Target HUD","Ник, ХП и броня соперника"],
-    ["armorHud","Armor HUD","Прочность брони в %"],
-    ["potionHud","Potion HUD","Активные эффекты"],
-    ["keystrokes","Keystrokes + CPS","Нажатия клавиш"],
-    ["coords","Координаты","С пересчётом для Ада"],
-    ["cooldown","Кулдауны","Жемчуг и оружие"],
-    ["totemCounter","Счётчик тотемов","Сколько снято у соперника"],
-    ["chatTheme","Тема чата","Фон, шрифт, анимация"],
-    ["customTab","Свой TAB","Пинг цифрами, сортировка"],
+  "HUD": [
+    ["targetHud","Target HUD","ХП, голова цели, броня, анимация урона"],
+    ["arrayList","ArrayList","Активные функции с RGB-градиентом"],
+    ["hotbar","Custom Hotbar","Минималистичные слоты, прозрачность"],
+    ["watermark","Watermark","Kubik, версия, FPS, пинг, время"],
+    ["keystrokes","Keystrokes","WASD, пробел, ЛКМ/ПКМ и CPS"],
+    ["armorHud","Armor HUD","Прочность и чары брони"],
+    ["potionHud","Potion Status","Эффекты с таймером"],
+    ["coords","Координаты и биом","XYZ и текущий биом"],
+    ["scoreboard","Scoreboard","Двигать, убрать фон, скрыть строки"],
+    ["chatTheme","Chat Tweaks","Прозрачный фон, шрифт, история"],
+    ["crosshair","Crosshair","Точка, круг, свой размер и цвет"],
     ["notifications","Уведомления","Тосты о функциях"]
   ],
+  "Косметика": [
+    ["chinaHat","China Hat","Конус с градиентом"],
+    ["cape","Custom Cape","Свой плащ, анимация"],
+    ["wings","Wings","Драконьи и ангельские, взмахи"],
+    ["halo","Бандана и нимб","На лицо и над головой"],
+    ["jumpCircles","Jump Circles","Кольца при прыжке и приземлении"],
+    ["trails","Trails","Линии, звёзды, дым, неон"],
+    ["spin","Spin / Head Roll","Вращение своей модели"]
+  ],
+  "Анимации": [
+    ["blockhit","1.7 Blockhit","Удар с блоком мечом"],
+    ["swing","Custom Swing","Плавный взмах, срез, тычок"],
+    ["viewmodel","Viewmodel","Предмет в руке по X, Y, Z"],
+    ["lowHand","Low Hand","Оружие ниже, не закрывает экран"],
+    ["eatAnim","Eat / Drink","Плавная анимация еды"]
+  ],
+  "Бой": [
+    ["hitParticles","Hit Particles","Молнии, кубы, искры"],
+    ["killEffect","Kill Effect","Молния, фейерверк, растворение"],
+    ["hitColor","Hit Color","Свой цвет вспышки урона"],
+    ["noHurtCam","NoHurtCam","Без тряски камеры от урона"],
+    ["trajectories","Траектории","Дуга только своих бросков"],
+    ["nameTags","NameTags","Ник, ХП, пинг (без стен)"],
+    ["friendHighlight","Подсветка друзей","Ник, привилегия, ХП"]
+  ],
   "Мир": [
-    ["crosshair","Свой прицел","Форма, размер, цвет"],
-    ["lowFire","Low Fire","Меньше огня на экране"],
-    ["blockOutline","Обводка блока","Цвет и прозрачность"],
-    ["zoom","Плавный зум","Колесо мыши"],
-    ["ambience","Ambience","Своё время суток"],
-    ["noWeather","Без дождя","Только у тебя"],
-    ["customFog","Свой туман","Цвет и дальность"],
-    ["itemPhysics","Физика предметов","Лежат плашмя"],
-    ["hitParticles","Частицы удара","Свой эффект попадания"],
-    ["jumpCircles","Jump Circles","Круги при прыжке"],
-    ["blur","Размытие меню","Blur под интерфейсом"]
+    ["timeChanger","Time Changer","Закат, полночь, рассвет"],
+    ["noWeather","Custom Weather","Без дождя и снега"],
+    ["skybox","Custom Skybox","Космос, арт, градиент"],
+    ["ambience","World Tint","Киберпанк, холодный, ретро"],
+    ["itemPhysics","Item Physics","Лут лежит на блоках"],
+    ["blockOutline","Block Outline","Цветная обводка блока"],
+    ["fullbright","Fullbright","Яркость без зелья"],
+    ["customFog","Fog","Густота, дальность, цвет"]
   ],
-  "Персонаж": [
-    ["chinaHat","China Hat","Конус над головой"],
-    ["trails","Trails","Шлейф за игроком"],
-    ["wings","Крылья","Несколько моделей"],
-    ["halo","Нимб","Над головой"],
-    ["cape","Плащ Kubik","С анимацией"],
-    ["aura","Аура","Вокруг игрока"],
-    ["swing","Анимации удара","Old / Smooth / Spin"],
-    ["handView","Вид рук","Размер и положение"]
+  "Экран": [
+    ["antiBlind","Anti-Blindness / Nausea","Без слепоты и тошноты"],
+    ["lowFire","No Fire Overlay","Без огня на экране"],
+    ["noTotemAnim","No Totem Animation","Без тотема на весь экран"],
+    ["noPumpkin","No Pumpkin","Без тыквы на экране"],
+    ["particleLimit","Particle Limiter","Меньше частиц, больше FPS"]
   ],
-  "Друзья и сервер": [
-    ["friendHighlight","Подсветка друзей","Ник, привилегия, ХП"],
+  "Камера": [
+    ["zoom","Zoom","Плавный зум на клавишу"],
+    ["freelook","Freelook","Обзор 360° по кнопке"],
+    ["motionBlur","Motion Blur","Блюр при поворотах"],
+    ["fovFix","Dynamic FOV Fix","FOV не меняется от спринта"],
+    ["bobbing","View Bobbing","Своё покачивание камеры"],
+    ["smoothCam","Smooth Camera","Плавная мышь для съёмок"]
+  ],
+  "Сервер": [
     ["rwHelper","RW Helper","Подсказки для ReallyWorld"],
     ["schematics","Схематики","Голограмма постройки"]
   ]
