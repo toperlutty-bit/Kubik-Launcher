@@ -108,7 +108,7 @@ footer .sp{margin-left:auto}
     </div>
     <div class="under" id="mainHint">Бесплатно · Fabric 1.21.11</div>
     <div class="pills">
-      <span class="pill">🪟 Windows</span><span class="pill">🍏 macOS</span><span class="pill">🤖 Android</span><span class="pill" id="verPill">Kubik Client 1.0.1</span>
+      <span class="pill">🪟 Windows</span><span class="pill">🍏 macOS</span><span class="pill">🤖 Android</span><span class="pill" id="verPill">Kubik Client 1.0.3</span>
     </div>
   </div>
 </div>
@@ -123,7 +123,7 @@ footer .sp{margin-left:auto}
       <div class="card"><div class="ic">✨</div><h3>Визуалы</h3><p>Красиво и удобно, без лишнего на экране.</p>
         <ul><li>Свой прицел, Zoom, Fullbright</li><li>Частицы, своё время и погода</li><li>Без огня, тыквы и виньетки</li></ul></div>
       <div class="card"><div class="ic">🟩</div><h3>Своё меню</h3><p>Зелёное главное меню Kubik и панель по ESC.</p>
-        <ul><li>Кнопка «Играть» на любимый сервер</li><li>Профиль, ID, активация ключей</li><li>Плащи, скины и косметика</li></ul></div>
+        <ul><li>Кнопка «Играть» на любимый сервер</li><li>Профиль, ID, активация ключей</li><li>Шапки, рюкзаки, крылья, питомцы, HD-плащи</li></ul></div>
       <div class="card"><div class="ic">👤</div><h3>Аккаунт Kubik</h3><p>Один аккаунт на всех устройствах.</p>
         <ul><li>Вход и регистрация прямо в игре</li><li>Подписки и роль переезжают с тобой</li><li>Друзья и конфиги</li></ul></div>
       <div class="card"><div class="ic">🔀</div><h3>Любые версии серверов</h3><p>Со сборкой Kubik идёт ViaFabricPlus — заходи на сервера 1.8–1.21 из одной игры.</p></div>
@@ -154,10 +154,10 @@ footer .sp{margin-left:auto}
     <p class="sub">Проще всего — через Prism Launcher: он сам поставит Minecraft, Fabric и Kubik.</p>
     <div class="steps">
       <div class="step"><b>Открой Prism Launcher</b><span>Нет его? <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener">Скачай бесплатно</a>. Windows — можно и через Kubik Launcher.</span></div>
-      <div class="step"><b>Add Instance → Import</b><span>Вставь ссылку:<br><code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.1.mrpack</code></span></div>
+      <div class="step"><b>Add Instance → Import</b><span>Вставь ссылку:<br><code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.3.mrpack</code></span></div>
       <div class="step"><b>Нажми Launch</b><span>Появится зелёное меню Kubik. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
     </div>
-    <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.1.jar" download>kubik-client-1.0.1.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
+    <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.3.jar" download>kubik-client-1.0.3.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
   </div>
 </section>
 
@@ -205,7 +205,7 @@ footer .sp{margin-left:auto}
   const ua = navigator.userAgent;
   const btn = document.getElementById("mainBtn"), hint = document.getElementById("mainHint");
   if (/Android/i.test(ua)) {
-    btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.1.mrpack";
+    btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.3.mrpack";
     hint.textContent = "Сборка для лаунчеров Java-версии с Fabric";
   } else if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) {
     btn.textContent = "⬇ Скачать для Mac"; btn.href = "mac/";
