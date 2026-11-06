@@ -4,364 +4,248 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07120c">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Kubik Mobile</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Kubik Launcher</title>
+<meta name="description" content="Kubik Launcher и Kubik Client — визуалы, HUD и хелперы для Minecraft 1.21.11 на Windows, Mac и Android.">
+<link rel="icon" href="logo.png" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
-:root{
-  --bg:#07120c; --bg2:#0c1d13; --card:#10251a; --card2:#163322; --line:#1f4a31;
-  --green:#3ddc84; --green2:#22b566; --text:#e8f7ee; --muted:#8fb8a0; --danger:#ff6b6b;
-  --r:16px;
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-body{min-height:100vh;background:radial-gradient(120% 60% at 50% -10%,#1b4d31 0%,var(--bg) 60%) fixed}
-header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;background:rgba(7,18,12,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header img{width:32px;height:32px}
-header h1{font-size:18px;margin:0;letter-spacing:.3px}
-header h1 span{color:var(--green)}
-header .ver{margin-left:auto;font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 8px;border-radius:99px}
-main{padding:16px 16px calc(env(safe-area-inset-bottom) + 90px);max-width:640px;margin:0 auto}
-section{display:none}section.on{display:block;animation:fade .25s ease}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-h2{font-size:20px;margin:4px 0 12px}
-h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:22px 0 8px}
-.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px}
-.hero{text-align:center;padding:24px 16px}
-.hero img{width:84px;height:84px;filter:drop-shadow(0 6px 24px rgba(61,220,132,.45))}
-.hero .big{font-size:26px;font-weight:700;margin:8px 0 2px}
-.muted{color:var(--muted)}
-.pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:rgba(61,220,132,.12);color:var(--green);border:1px solid rgba(61,220,132,.35)}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;border:0;border-radius:12px;background:var(--green);color:#04210f;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer}
-.btn:active{transform:scale(.98)}
-.btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green2)}
-.btn.small{width:auto;padding:9px 14px;font-size:14px}
-.row{display:flex;gap:10px;align-items:center}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px}
-.stat b{display:block;font-size:20px;color:var(--green)}
-.notes{white-space:pre-wrap;margin:0;font-size:14px}
-input[type=text],select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font-size:15px;outline:none}
-input[type=text]:focus{border-color:var(--green)}
-input[type=color]{width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);padding:4px;flex:none}
-.search{margin-bottom:6px}
-.mod{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.mod:last-child{border-bottom:0}
-.mod .t{flex:1;min-width:0}.mod .t b{display:block;font-weight:600}.mod .t small{color:var(--muted)}
-.sw{position:relative;width:48px;height:28px;flex:none}
-.sw input{opacity:0;width:0;height:0}
-.sw span{position:absolute;inset:0;background:#24352b;border-radius:99px;transition:.2s}
-.sw span:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#cfe;border-radius:50%;transition:.2s}
-.sw input:checked+span{background:var(--green2)}
-.sw input:checked+span:before{transform:translateX(20px);background:#fff}
-.friend{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
-.friend:last-child{border-bottom:0}
-.av{width:40px;height:40px;border-radius:10px;background:var(--bg2);border:2px solid var(--green);image-rendering:pixelated;flex:none;object-fit:cover}
-.friend .t{flex:1}.friend .t b{display:block}
-.x{background:none;border:0;color:var(--danger);font-size:22px;padding:4px 8px;cursor:pointer}
-.empty{text-align:center;color:var(--muted);padding:18px 0}
-.news .tag{font-size:12px;color:var(--green)}
-.news h4{margin:4px 0 6px;font-size:16px}
-.skin{display:block;margin:6px auto 12px;height:220px;image-rendering:pixelated}
-nav{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:space-around;padding:8px 6px calc(env(safe-area-inset-bottom) + 8px);background:rgba(10,24,16,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;color:var(--muted);font-size:11px;padding:6px 0;cursor:pointer}
-nav button svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-nav button.on{color:var(--green)}
-.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--green);color:#04210f;font-weight:600;padding:10px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:9;max-width:90vw;text-align:center}
-.toast.on{opacity:1;transform:translateX(-50%)}
-textarea{width:100%;min-height:90px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font:12px/1.4 ui-monospace,monospace;resize:vertical}
+:root{--bg:#07120c;--bg2:#0b1a11;--card:#10251a;--card2:#163322;--line:#1f4a31;--green:#3ddc84;--green2:#22b566;--text:#e8f7ee;--muted:#8fb8a0;--dim:#5e7d6a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--green)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+/* шапка */
+header{position:sticky;top:0;z-index:10;background:rgba(7,18,12,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:12px;height:58px}
+header img{width:30px;height:30px;border-radius:7px}
+header b{font-size:17px}
+header nav{margin-left:auto;display:flex;gap:18px;align-items:center}
+header nav a{color:var(--muted);text-decoration:none;font-size:15px}
+header nav a:hover{color:var(--text)}
+header nav a.cta{color:#04210f;background:var(--green);padding:7px 14px;border-radius:10px;font-weight:700}
+@media (max-width:720px){header nav a:not(.cta){display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 56px;text-align:center;background:radial-gradient(80% 60% at 50% 0%,#1d5a35 0%,rgba(7,18,12,0) 70%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative}
+.hero .logo{width:min(560px,92%);height:auto;image-rendering:pixelated;filter:drop-shadow(0 10px 40px rgba(61,220,132,.35));animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.hero .logo{animation:none}}
+.hero p.lead{max-width:640px;margin:18px auto 26px;color:var(--muted);font-size:18px}
+.dl{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:12px;background:var(--green);color:#04210f;font-weight:800;text-decoration:none;font-size:16px;border:0}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green2);font-weight:700}
+.under{margin-top:12px;color:var(--dim);font-size:14px}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.pill{font-size:13px;padding:5px 12px;border-radius:99px;border:1px solid var(--line);color:var(--muted);background:rgba(16,37,26,.6)}
+/* секции */
+section{padding:56px 0}
+section h2{font-size:28px;margin:0 0 8px;text-align:center}
+section .sub{color:var(--muted);text-align:center;margin:0 auto 30px;max-width:620px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:20px}
+.card .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:21px;background:rgba(61,220,132,.12);border:1px solid rgba(61,220,132,.3);margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* шаги */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:22px 20px 20px 66px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:20px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#04210f;background:var(--green)}
+.step b{display:block;margin-bottom:4px}
+.step span{color:var(--muted);font-size:15px}
+code{background:#0a1710;border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:13px;word-break:break-all}
+/* подписки */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.plan.hot{border-color:var(--green2);box-shadow:0 0 0 1px var(--green2),0 10px 40px rgba(61,220,132,.12)}
+.plan h3{margin:0 0 4px;font-size:20px}
+.plan .tag{font-size:12px;color:var(--green)}
+.plan ul{padding-left:18px;color:var(--muted);font-size:15px;margin:12px 0 0}
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:var(--green)}
+details[open] summary:after{content:"−"}
+details p{color:var(--muted);margin:10px 0 0}
+footer{padding:30px 0 50px;color:var(--dim);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--muted);text-decoration:none}
+footer .sp{margin-left:auto}
 </style>
 </head>
 <body>
 <header>
-  <img src="icon.svg" alt="">
-  <h1>Kubik <span>Mobile</span></h1>
-  <span class="ver" id="hdrVer">…</span>
+  <div class="wrap">
+    <img src="logo.png" alt="">
+    <b>Kubik Launcher</b>
+    <nav>
+      <a href="#features">Функции</a>
+      <a href="#helpers">Хелперы</a>
+      <a href="#install">Установка</a>
+      <a href="app/">Приложение</a>
+      <a class="cta" href="download/">Скачать</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <!-- ГЛАВНАЯ -->
-  <section id="home" class="on">
-    <div class="card hero">
-      <img src="icon.svg" alt="">
-      <div class="big">Kubik Launcher</div>
-      <div class="muted" id="heroSub">Проверяю последнюю версию…</div>
-      <div style="margin-top:12px"><span class="pill" id="heroPill">—</span></div>
+<div class="hero">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <img class="logo" src="logo-wide.png" alt="Kubik Launcher" width="668" height="190">
+    <p class="lead">Визуалы, HUD и хелперы для Minecraft 1.21.11. Своё меню, аккаунт Kubik и подписки — на Windows, Mac и Android.</p>
+    <div class="dl">
+      <a class="btn" id="mainBtn" href="download/">⬇ Скачать Kubik</a>
+      <a class="btn ghost" href="download/">Все платформы</a>
     </div>
-    <div class="grid2">
-      <div class="stat"><span class="muted">Включено визуалов</span><b id="stVis">0</b></div>
-      <div class="stat"><span class="muted">Друзей</span><b id="stFr">0</b></div>
+    <div class="under" id="mainHint">Бесплатно · Fabric 1.21.11</div>
+    <div class="pills">
+      <span class="pill">🪟 Windows</span><span class="pill">🍏 macOS</span><span class="pill">🤖 Android</span><span class="pill" id="verPill">Kubik Client 1.0.1</span>
     </div>
-    <h3>Что нового</h3>
-    <div class="card"><p class="notes" id="notes">Загрузка…</p></div>
-    <a class="btn" id="dlBtn" href="https://github.com/toperlutty-bit/Kubik-Launcher/releases/latest" target="_blank" rel="noopener">⬇ Скачать для ПК (Windows)</a>
-    <div style="height:10px"></div>
-    <a class="btn ghost" href="download/">⬇ Скачать Kubik: Windows, Mac, Android</a>
-    <div style="height:10px"></div>
-    <button class="btn ghost" data-go="news">Все обновления</button>
-  </section>
+  </div>
+</div>
 
-  <!-- НОВОСТИ -->
-  <section id="news">
-    <h2>Обновления</h2>
-    <div id="newsList"><div class="empty">Загрузка…</div></div>
-  </section>
-
-  <!-- ВИЗУАЛЫ -->
-  <section id="visuals">
-    <h2>Визуалы</h2>
-    <div class="card muted" style="font-size:14px">Здесь ты собираешь свой набор визуалов. В игру он попадёт, когда ПК-лаунчер научится загружать код конфига (Профиль → Конфиг).</div>
-    <input class="search" type="text" id="visSearch" placeholder="Поиск функции…">
-    <div id="visList"></div>
-  </section>
-
-  <!-- ДРУЗЬЯ -->
-  <section id="friends">
-    <h2>Друзья</h2>
-    <div class="card">
-      <div class="muted" style="margin-bottom:10px">Список друзей и цвет подсветки. В игру он попадёт, когда ПК-лаунчер научится загружать код конфига.</div>
-      <div class="row">
-        <input type="text" id="frNick" placeholder="Ник игрока" maxlength="16" autocomplete="off">
-        <input type="color" id="frColor" value="#3ddc84" aria-label="Цвет подсветки">
-      </div>
-      <div style="height:10px"></div>
-      <button class="btn" id="frAdd">+ Добавить друга</button>
+<section id="features">
+  <div class="wrap">
+    <h2>Что умеет Kubik</h2>
+    <p class="sub">Больше 50 функций в одном моде. Меню клиента — на правый Shift.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🧭</div><h3>HUD</h3><p>Всё нужное на экране — и двигается мышью.</p>
+        <ul><li>Здоровье цели, броня, эффекты</li><li>Keystrokes и CPS, FPS, пинг</li><li>Координаты, биом, время</li></ul></div>
+      <div class="card"><div class="ic">✨</div><h3>Визуалы</h3><p>Красиво и удобно, без лишнего на экране.</p>
+        <ul><li>Свой прицел, Zoom, Fullbright</li><li>Частицы, своё время и погода</li><li>Без огня, тыквы и виньетки</li></ul></div>
+      <div class="card"><div class="ic">🟩</div><h3>Своё меню</h3><p>Зелёное главное меню Kubik и панель по ESC.</p>
+        <ul><li>Кнопка «Играть» на любимый сервер</li><li>Профиль, ID, активация ключей</li><li>Плащи, скины и косметика</li></ul></div>
+      <div class="card"><div class="ic">👤</div><h3>Аккаунт Kubik</h3><p>Один аккаунт на всех устройствах.</p>
+        <ul><li>Вход и регистрация прямо в игре</li><li>Подписки и роль переезжают с тобой</li><li>Друзья и конфиги</li></ul></div>
+      <div class="card"><div class="ic">🔀</div><h3>Любые версии серверов</h3><p>Со сборкой Kubik идёт ViaFabricPlus — заходи на сервера 1.8–1.21 из одной игры.</p></div>
+      <div class="card"><div class="ic">📱</div><h3>Kubik Mobile</h3><p>Приложение для телефона: новости, визуалы и друзья.</p>
+        <ul><li><a href="app/">Открыть приложение</a></li></ul></div>
     </div>
-    <div class="card" id="frList"></div>
-  </section>
+  </div>
+</section>
 
-  <!-- ПРОФИЛЬ -->
-  <section id="profile">
-    <h2>Профиль</h2>
-    <div class="card" style="text-align:center">
-      <img class="skin" id="skin" alt="" src="icon.svg">
-      <input type="text" id="myNick" placeholder="Твой ник в Minecraft" maxlength="16" autocomplete="off">
+<section id="helpers" class="alt">
+  <div class="wrap">
+    <h2>Хелперы для серверов</h2>
+    <p class="sub">Подсказки на экране — играешь ты сам. Включаются в Click GUI → «Хелперы».</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🧱</div><h3>FT · HW · RW Helper</h3><p>Для FunTime, HolyWorld и ReallyWorld: возьми Трапку или Пласт — увидишь, где они встанут.</p>
+        <ul><li>Трапка 4×4 вокруг цели</li><li>Пласт 4×3 стеной или плитой</li><li>Размеры настраиваются</li></ul></div>
+      <div class="card"><div class="ic">🎯</div><h3>HT1 Helper</h3><p>Hit Range — круг дальности удара: зелёный, если достаёшь, красный — если нет.</p>
+        <ul><li>Дистанция до цели в HUD</li><li>Подсказки по биндам и слотам</li></ul></div>
+      <div class="card"><div class="ic">⚡</div><h3>Для любого сервера</h3><p>Быстрые команды и полезные мелочи.</p>
+        <ul><li>Спавн, дом, аукцион, RTP одной кнопкой</li><li>Время в чате и фильтр спама</li><li>Координаты места смерти</li></ul></div>
     </div>
-    <h3>Конфиг</h3>
-    <div class="card">
-      <div class="muted" style="margin-bottom:10px">Все настройки и друзья одним кодом. Скопируй, чтобы перенести на другой телефон или в ПК-лаунчер.</div>
-      <button class="btn" id="cfgCopy">Скопировать код конфига</button>
-      <div style="height:10px"></div>
-      <textarea id="cfgIn" placeholder="Вставь сюда код конфига…"></textarea>
-      <div style="height:10px"></div>
-      <button class="btn ghost" id="cfgLoad">Загрузить из кода</button>
-    </div>
-    <h3>Как установить на телефон</h3>
-    <div class="card muted" style="font-size:14px">
-      <b style="color:var(--text)">Android (Chrome):</b> меню ⋮ → «Добавить на главный экран».<br>
-      <b style="color:var(--text)">iPhone (Safari):</b> «Поделиться» → «На экран Домой».
-    </div>
-    <button class="btn ghost" id="reset" style="border-color:var(--danger);color:var(--danger)">Сбросить всё</button>
-  </section>
-</main>
+  </div>
+</section>
 
-<nav>
-  <button data-go="home" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Главная</button>
-  <button data-go="news"><svg viewBox="0 0 24 24"><path d="M4 4h12v16H6a2 2 0 0 1-2-2zM16 8h4v10a2 2 0 0 1-2 2h-2M8 8h4M8 12h4M8 16h4"/></svg>Новости</button>
-  <button data-go="visuals"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Визуалы</button>
-  <button data-go="friends"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg>Друзья</button>
-  <button data-go="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Профиль</button>
-</nav>
+<section id="install">
+  <div class="wrap">
+    <h2>Установка за минуту</h2>
+    <p class="sub">Проще всего — через Prism Launcher: он сам поставит Minecraft, Fabric и Kubik.</p>
+    <div class="steps">
+      <div class="step"><b>Открой Prism Launcher</b><span>Нет его? <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener">Скачай бесплатно</a>. Windows — можно и через Kubik Launcher.</span></div>
+      <div class="step"><b>Add Instance → Import</b><span>Вставь ссылку:<br><code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.1.mrpack</code></span></div>
+      <div class="step"><b>Нажми Launch</b><span>Появится зелёное меню Kubik. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
+    </div>
+    <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.1.jar" download>kubik-client-1.0.1.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
+  </div>
+</section>
 
-<div class="toast" id="toast"></div>
+<section id="plans" class="alt">
+  <div class="wrap">
+    <h2>Подписки</h2>
+    <p class="sub">Базовые функции бесплатны. Подписка открывает всё остальное и поддерживает проект.</p>
+    <div class="plans">
+      <div class="plan"><h3>Free</h3><span class="tag">навсегда</span>
+        <ul><li>Меню Kubik и панель по ESC</li><li>Watermark, Fullbright, оптимизация</li><li>Хелперы серверов</li></ul></div>
+      <div class="plan hot"><h3>Plus</h3><span class="tag">популярный</span>
+        <ul><li>Все HUD и темы Click GUI</li><li>Цвет ника в чате</li><li>Плащи и косметика</li></ul></div>
+      <div class="plan"><h3>Elite</h3><span class="tag">максимум</span>
+        <ul><li>Всё из Plus</li><li>Трекер тотемов и остальные функции</li><li>Пробный Elite на 3 дня — один раз</li></ul></div>
+    </div>
+    <p class="sub" style="margin-top:22px">Купить подписку — в Discord <b>yttoper1</b>. Ключ активируется в игре: ESC → Kubik Launcher → «Активировать ключ».</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:760px">
+    <h2>Вопросы</h2>
+    <p class="sub">Самое частое.</p>
+    <details><summary>Игра не запускается</summary><p>Убери из папки <code>mods</code> старые версии Kubik Client — два мода Kubik сразу не запустятся. Скачай свежую сборку по ссылке выше. Если вылет остался — пришли начало crash-отчёта в Discord.</p></details>
+    <details><summary>Браузер скачивает только мод вместо сборки</summary><p>Не скачивай <code>.mrpack</code> браузером: в Prism нажми Add Instance → Import и вставь ссылку — Prism скачает сам.</p></details>
+    <details><summary>Где мой ID и как получить подписку?</summary><p>ESC → Kubik Launcher → «Профиль». Назови ID в Discord yttoper1 — подписку выдадут прямо на профиль, вводить ничего не придётся.</p></details>
+    <details><summary>Можно играть на Mac и Android?</summary><p>Да. Kubik Client — обычный мод Fabric, он работает везде, где есть Minecraft Java 1.21.11 с Fabric. На Android — через лаунчеры Java-версии с поддержкой Fabric.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="" width="22" height="22" style="border-radius:5px">
+    <span>Kubik Launcher · Toper1</span>
+    <a href="download/">Скачать</a>
+    <a href="mac/">Mac</a>
+    <a href="app/">Kubik Mobile</a>
+    <span class="sp">Discord: yttoper1</span>
+  </div>
+</footer>
 
 <script>
-const REPO = "toperlutty-bit/Kubik-Launcher";
-const MANIFEST = "https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/latest.json";
-const KEY = "kubik-mobile-v1";
-
-const VISUALS = {
-  "HUD": [
-    ["targetHud","Target HUD","ХП, голова цели, броня, анимация урона"],
-    ["arrayList","ArrayList","Активные функции с RGB-градиентом"],
-    ["hotbar","Custom Hotbar","Минималистичные слоты, прозрачность"],
-    ["watermark","Watermark","Kubik, версия, FPS, пинг, время"],
-    ["keystrokes","Keystrokes","WASD, пробел, ЛКМ/ПКМ и CPS"],
-    ["armorHud","Armor HUD","Прочность и чары брони"],
-    ["potionHud","Potion Status","Эффекты с таймером"],
-    ["coords","Координаты и биом","XYZ и текущий биом"],
-    ["scoreboard","Scoreboard","Двигать, убрать фон, скрыть строки"],
-    ["chatTheme","Chat Tweaks","Прозрачный фон, шрифт, история"],
-    ["crosshair","Crosshair","Точка, круг, свой размер и цвет"],
-    ["notifications","Уведомления","Тосты о функциях"]
-  ],
-  "Косметика": [
-    ["chinaHat","China Hat","Конус с градиентом"],
-    ["cape","Custom Cape","Свой плащ, анимация"],
-    ["wings","Wings","Драконьи и ангельские, взмахи"],
-    ["halo","Бандана и нимб","На лицо и над головой"],
-    ["jumpCircles","Jump Circles","Кольца при прыжке и приземлении"],
-    ["trails","Trails","Линии, звёзды, дым, неон"],
-    ["spin","Spin / Head Roll","Вращение своей модели"]
-  ],
-  "Анимации": [
-    ["blockhit","1.7 Blockhit","Удар с блоком мечом"],
-    ["swing","Custom Swing","Плавный взмах, срез, тычок"],
-    ["viewmodel","Viewmodel","Предмет в руке по X, Y, Z"],
-    ["lowHand","Low Hand","Оружие ниже, не закрывает экран"],
-    ["eatAnim","Eat / Drink","Плавная анимация еды"]
-  ],
-  "Бой": [
-    ["hitParticles","Hit Particles","Молнии, кубы, искры"],
-    ["killEffect","Kill Effect","Молния, фейерверк, растворение"],
-    ["hitColor","Hit Color","Свой цвет вспышки урона"],
-    ["noHurtCam","NoHurtCam","Без тряски камеры от урона"],
-    ["trajectories","Траектории","Дуга только своих бросков"],
-    ["nameTags","NameTags","Ник, ХП, пинг (без стен)"],
-    ["friendHighlight","Подсветка друзей","Ник, привилегия, ХП"]
-  ],
-  "Мир": [
-    ["timeChanger","Time Changer","Закат, полночь, рассвет"],
-    ["noWeather","Custom Weather","Без дождя и снега"],
-    ["skybox","Custom Skybox","Космос, арт, градиент"],
-    ["ambience","World Tint","Киберпанк, холодный, ретро"],
-    ["itemPhysics","Item Physics","Лут лежит на блоках"],
-    ["blockOutline","Block Outline","Цветная обводка блока"],
-    ["fullbright","Fullbright","Яркость без зелья"],
-    ["customFog","Fog","Густота, дальность, цвет"]
-  ],
-  "Экран": [
-    ["antiBlind","Anti-Blindness / Nausea","Без слепоты и тошноты"],
-    ["lowFire","No Fire Overlay","Без огня на экране"],
-    ["noTotemAnim","No Totem Animation","Без тотема на весь экран"],
-    ["noPumpkin","No Pumpkin","Без тыквы на экране"],
-    ["particleLimit","Particle Limiter","Меньше частиц, больше FPS"]
-  ],
-  "Камера": [
-    ["zoom","Zoom","Плавный зум на клавишу"],
-    ["freelook","Freelook","Обзор 360° по кнопке"],
-    ["motionBlur","Motion Blur","Блюр при поворотах"],
-    ["fovFix","Dynamic FOV Fix","FOV не меняется от спринта"],
-    ["bobbing","View Bobbing","Своё покачивание камеры"],
-    ["smoothCam","Smooth Camera","Плавная мышь для съёмок"]
-  ],
-  "Сервер": [
-    ["rwHelper","RW Helper","Подсказки для ReallyWorld"],
-    ["schematics","Схематики","Голограмма постройки"]
-  ]
-};
-
-const defaults = () => ({ vis:{ watermark:true, hotbar:true, targetHud:true, crosshair:true, friendHighlight:true }, friends:[], nick:"" });
-let S;
-try { S = Object.assign(defaults(), JSON.parse(localStorage.getItem(KEY)) || {}); } catch { S = defaults(); }
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} stats(); };
-
-const $ = s => document.querySelector(s);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const nickOk = n => /^[A-Za-z0-9_]{3,16}$/.test(n);
-const head = n => `https://mc-heads.net/avatar/${encodeURIComponent(n)}/64`;
-function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("on"); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove("on"),1800); }
-
-/* навигация */
-function go(id){
-  document.querySelectorAll("section").forEach(s=>s.classList.toggle("on", s.id===id));
-  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on", b.dataset.go===id));
-  scrollTo(0,0);
-  if(id==="news") loadNews();
-}
-document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-
-function stats(){
-  $("#stVis").textContent = Object.values(S.vis).filter(Boolean).length;
-  $("#stFr").textContent = S.friends.length;
-}
-
-/* главная: последняя версия */
-async function loadLatest(){
-  try{
-    const r = await fetch(MANIFEST + "?t=" + Date.now()); const d = await r.json();
-    $("#hdrVer").textContent = "v" + d.version;
-    $("#heroPill").textContent = "Версия " + d.version;
-    $("#heroSub").textContent = "Обновлено " + new Date(d.pub_date).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"});
-    $("#notes").textContent = d.notes || "Без описания";
-    const url = d.platforms?.["windows-x86_64"]?.url; if(url) $("#dlBtn").href = url;
-  }catch{
-    $("#hdrVer").textContent = "офлайн";
-    $("#heroSub").textContent = "Нет интернета — показываю сохранённое";
-    $("#notes").textContent = "Не удалось загрузить список изменений.";
+// главная кнопка под платформу
+(function () {
+  const ua = navigator.userAgent;
+  const btn = document.getElementById("mainBtn"), hint = document.getElementById("mainHint");
+  if (/Android/i.test(ua)) {
+    btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.1.mrpack";
+    hint.textContent = "Сборка для лаунчеров Java-версии с Fabric";
+  } else if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) {
+    btn.textContent = "⬇ Скачать для Mac"; btn.href = "mac/";
+    hint.textContent = "Сборка для Prism Launcher · Apple Silicon и Intel";
+  } else if (/Windows/i.test(ua)) {
+    btn.textContent = "⬇ Скачать для Windows";
+    fetch("https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/latest.json?" + Date.now())
+      .then(r => r.json()).then(d => {
+        const url = d.platforms && d.platforms["windows-x86_64"] && d.platforms["windows-x86_64"].url;
+        if (url) btn.href = url;
+        hint.textContent = "Kubik Launcher " + d.version + " · обновляется сам";
+      }).catch(() => {});
+  } else if (/iPhone|iPad/i.test(ua)) {
+    btn.textContent = "📱 Открыть Kubik Mobile"; btn.href = "app/";
+    hint.textContent = "Java-версия Minecraft на iPhone не запускается";
   }
-}
+})();
 
-/* новости: релизы GitHub */
-let newsLoaded=false;
-async function loadNews(){
-  if(newsLoaded) return;
-  const box=$("#newsList");
-  try{
-    const r = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=15`);
-    if(!r.ok) throw 0;
-    const list = await r.json(); newsLoaded=true;
-    box.innerHTML = list.length ? list.map(x=>`
-      <div class="card news">
-        <span class="tag">${esc(x.tag_name)} · ${new Date(x.published_at).toLocaleDateString("ru-RU")}</span>
-        <h4>${esc(x.name||x.tag_name)}</h4>
-        <p class="notes muted">${esc((x.body||"").trim()||"Без описания")}</p>
-      </div>`).join("") : '<div class="empty">Пока нет обновлений</div>';
-  }catch{ box.innerHTML='<div class="empty">Не удалось загрузить. Проверь интернет.</div>'; }
-}
-
-/* визуалы */
-function renderVis(){
-  const q = $("#visSearch").value.trim().toLowerCase(); let html="";
-  for(const [cat,items] of Object.entries(VISUALS)){
-    const f = items.filter(([,n,d])=>!q || (n+" "+d).toLowerCase().includes(q));
-    if(!f.length) continue;
-    html += `<h3>${esc(cat)}</h3><div class="card">` + f.map(([id,n,d])=>`
-      <label class="mod"><div class="t"><b>${esc(n)}</b><small>${esc(d)}</small></div>
-      <span class="sw"><input type="checkbox" data-vis="${id}" ${S.vis[id]?"checked":""}><span></span></span></label>`).join("") + `</div>`;
+// светлячки в шапке
+(function () {
+  const c = document.getElementById("fx"), x = c.getContext("2d");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let w, h, dots = [];
+  function size() {
+    w = c.width = c.offsetWidth * devicePixelRatio; h = c.height = c.offsetHeight * devicePixelRatio;
+    dots = Array.from({length: 34}, () => ({x: Math.random() * w, y: Math.random() * h, r: (1 + Math.random() * 2) * devicePixelRatio, s: .2 + Math.random() * .5, p: Math.random() * 6}));
   }
-  $("#visList").innerHTML = html || '<div class="empty">Ничего не найдено</div>';
-}
-$("#visSearch").oninput = renderVis;
-$("#visList").onchange = e => { const id=e.target.dataset.vis; if(!id) return; S.vis[id]=e.target.checked; save(); };
-
-/* друзья */
-function renderFriends(){
-  $("#frList").innerHTML = S.friends.length ? S.friends.map((f,i)=>`
-    <div class="friend">
-      <img class="av" src="${head(f.nick)}" alt="" style="border-color:${esc(f.color)}" onerror="this.src='icon.svg'">
-      <div class="t"><b>${esc(f.nick)}</b><small class="muted">Подсветка <span style="color:${esc(f.color)}">●</span> ${esc(f.color)}</small></div>
-      <button class="x" data-del="${i}" aria-label="Удалить">×</button>
-    </div>`).join("") : '<div class="empty">Друзей пока нет. Добавь первого!</div>';
-}
-$("#frAdd").onclick = () => {
-  const nick=$("#frNick").value.trim();
-  if(!nickOk(nick)) return toast("Ник: 3–16 символов, латиница, цифры и _");
-  if(S.friends.some(f=>f.nick.toLowerCase()===nick.toLowerCase())) return toast("Уже в друзьях");
-  S.friends.push({nick, color:$("#frColor").value}); save(); renderFriends();
-  $("#frNick").value=""; toast(nick+" добавлен в друзья");
-};
-$("#frList").onclick = e => { const i=e.target.dataset.del; if(i===undefined) return; const n=S.friends[i].nick; S.friends.splice(i,1); save(); renderFriends(); toast(n+" удалён"); };
-
-/* профиль */
-function renderSkin(){ $("#skin").src = nickOk(S.nick) ? `https://mc-heads.net/body/${encodeURIComponent(S.nick)}/180` : "icon.svg"; }
-$("#myNick").value = S.nick;
-$("#myNick").onchange = e => { const n=e.target.value.trim(); if(n && !nickOk(n)) return toast("Ник: 3–16 символов, латиница, цифры и _"); S.nick=n; save(); renderSkin(); };
-$("#skin").onerror = function(){ this.src="icon.svg"; };
-
-$("#cfgCopy").onclick = async () => {
-  const code = "KUBIK1:" + btoa(unescape(encodeURIComponent(JSON.stringify(S))));
-  try{ await navigator.clipboard.writeText(code); toast("Код скопирован"); }
-  catch{ $("#cfgIn").value=code; toast("Скопируй код из поля ниже"); }
-};
-$("#cfgLoad").onclick = () => {
-  const v=$("#cfgIn").value.trim();
-  try{
-    if(!v.startsWith("KUBIK1:")) throw 0;
-    const d=JSON.parse(decodeURIComponent(escape(atob(v.slice(7)))));
-    S=Object.assign(defaults(), {vis:d.vis||{}, friends:Array.isArray(d.friends)?d.friends.filter(f=>f&&nickOk(f.nick)):[], nick:nickOk(d.nick||"")?d.nick:""});
-    save(); renderAll(); $("#cfgIn").value=""; toast("Конфиг загружен");
-  }catch{ toast("Неверный код конфига"); }
-};
-$("#reset").onclick = () => { if(!confirm("Сбросить все настройки и друзей?")) return; S=defaults(); save(); renderAll(); toast("Всё сброшено"); };
-
-function renderAll(){ renderVis(); renderFriends(); $("#myNick").value=S.nick; renderSkin(); stats(); }
-renderAll(); loadLatest();
-
-if("serviceWorker" in navigator) addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  function frame(t) {
+    x.clearRect(0, 0, w, h);
+    for (const d of dots) {
+      d.y -= d.s * devicePixelRatio; if (d.y < -10) { d.y = h + 10; d.x = Math.random() * w; }
+      const a = .35 + .65 * (.5 + .5 * Math.sin(t / 700 + d.p));
+      const g = x.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r * 6);
+      g.addColorStop(0, `rgba(170,255,150,${a})`); g.addColorStop(1, "rgba(80,230,110,0)");
+      x.fillStyle = g; x.beginPath(); x.arc(d.x, d.y, d.r * 6, 0, 7); x.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  addEventListener("resize", size); size(); requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
