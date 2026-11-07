@@ -48,16 +48,19 @@ h2.sec{font-size:20px;margin:34px 0 12px}
   <div class="grid">
     <div class="card">
       <h2>🪟 Windows</h2>
-      <p>Kubik Launcher: сам ставит Minecraft, Fabric и Kubik Client, обновляется автоматически.</p>
-      <a class="btn" id="winBtn" href="https://github.com/toperlutty-bit/Kubik-Launcher/releases/latest">Скачать лаунчер</a>
-      <span class="ver" id="winVer">Последняя версия…</span>
+      <p>Новый Kubik Launcher 1.0: сам ставит Minecraft 1.21.11, Java, Fabric и свежий Kubik Client. Аккаунт и ключи — прямо в лаунчере.</p>
+      <a class="btn" href="../downloads/KubikLauncher-Setup.exe" download>Скачать Kubik Launcher</a>
+      <a class="btn ghost" href="../downloads/Kubik-1.0.6.mrpack" download>Сборка для Prism (.mrpack)</a>
+      <a class="btn ghost" href="../downloads/kubik-client-1.0.6.jar" download>Только мод (.jar)</a>
+      <span class="ver">Windows 10 и 11 · Синее окно SmartScreen: «Подробнее» → «Выполнить в любом случае»</span>
     </div>
     <div class="card">
       <h2>🍏 macOS</h2>
-      <p>Мод Kubik Client для Minecraft 1.21.11 + Fabric. Ставится в любой лаунчер с Fabric.</p>
-      <a class="btn" href="../downloads/Kubik-1.0.6.mrpack" download>Скачать сборку (.mrpack)</a>
-      <a class="btn ghost" href="../downloads/kubik-client-1.0.6.jar" download>Только мод (.jar)</a>
+      <p>Тот же Kubik Launcher 1.0 для Mac на Apple Silicon (M1–M4) и Intel. Открой .dmg и перетащи Kubik Launcher в «Программы».</p>
+      <a class="btn" href="../downloads/KubikLauncher.dmg" download>Скачать Kubik Launcher</a>
+      <a class="btn ghost" href="../downloads/Kubik-1.0.6.mrpack" download>Сборка для Prism (.mrpack)</a>
       <a class="btn ghost" href="../mac/">Как установить</a>
+      <span class="ver">Не открывается? Настройки → Конфиденциальность и безопасность → «Всё равно открыть»</span>
     </div>
     <div class="card">
       <h2>🤖 Android</h2>
@@ -84,6 +87,17 @@ h2.sec{font-size:20px;margin:34px 0 12px}
 
   <h2 class="sec">Что нового</h2>
   <div class="log">
+    <div class="entry">
+      <div class="head"><b>Kubik Launcher 1.0</b><span class="tag">новое</span></div>
+      <ul>
+        <li>Лаунчер переписан с нуля на Rust: быстрый, лёгкий, для Windows и Mac</li>
+        <li>Новый дизайн в стиле сайта: приглушённый зелёный, светлячки, боковое меню</li>
+        <li>Сам ставит Minecraft 1.21.11, Java, Fabric и всегда свежий Kubik Client</li>
+        <li>Аккаунт Kubik в лаунчере: вход, регистрация, ключи, пробный Elite — и всё это сразу в игре</li>
+        <li>Настройки: память, ViaFabricPlus одним переключателем, вход сразу на сервер</li>
+        <li>Новости обновлений прямо в лаунчере</li>
+      </ul>
+    </div>
     <div class="entry">
       <div class="head"><b>Kubik Client 1.0.6</b><span class="tag">новое</span></div>
       <ul>
@@ -117,12 +131,6 @@ h2.sec{font-size:20px;margin:34px 0 12px}
 <script>
 const REPO = "toperlutty-bit/Kubik-Launcher";
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-fetch("https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/latest.json?" + Date.now())
-  .then(r => r.json()).then(d => {
-    document.getElementById("winVer").textContent = "Версия " + d.version;
-    const url = d.platforms && d.platforms["windows-x86_64"] && d.platforms["windows-x86_64"].url;
-    if (url) document.getElementById("winBtn").href = url;
-  }).catch(() => { document.getElementById("winVer").textContent = ""; });
 fetch(`https://api.github.com/repos/${REPO}/releases?per_page=10`)
   .then(r => r.ok ? r.json() : []).then(list => {
     document.getElementById("releases").innerHTML = list.map(x => `
