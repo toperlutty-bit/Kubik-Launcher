@@ -151,12 +151,13 @@ footer .sp{margin-left:auto}
 <section id="install">
   <div class="wrap">
     <h2>Установка за минуту</h2>
-    <p class="sub">Проще всего — через Prism Launcher: он сам поставит Minecraft, Fabric и Kubik.</p>
+    <p class="sub">Kubik Launcher для Windows и Mac сам поставит Minecraft 1.21.11, Java, Fabric и свежий Kubik Client.</p>
     <div class="steps">
-      <div class="step"><b>Открой Prism Launcher</b><span>Нет его? <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener">Скачай бесплатно</a> — есть для Windows, Mac и Linux.</span></div>
-      <div class="step"><b>Add Instance → Import</b><span>Вставь ссылку:<br><code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.6.mrpack</code></span></div>
-      <div class="step"><b>Нажми Launch</b><span>Появится зелёное меню Kubik. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
+      <div class="step"><b>Скачай Kubik Launcher</b><span><a href="downloads/KubikLauncher-Setup.exe" download>Windows (.exe)</a> · <a href="downloads/KubikLauncher.dmg" download>Mac (.dmg)</a></span></div>
+      <div class="step"><b>Впиши ник</b><span>По желанию войди в аккаунт Kubik — подписки перенесутся сами.</span></div>
+      <div class="step"><b>Нажми «Играть»</b><span>Первый запуск качает игру пару минут. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
     </div>
+    <p class="sub" style="margin-top:22px">Есть Prism Launcher? Add Instance → Import и вставь ссылку <code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.6.mrpack</code></p>
     <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.6.jar" download>kubik-client-1.0.6.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
   </div>
 </section>
@@ -184,7 +185,9 @@ footer .sp{margin-left:auto}
     <details><summary>Игра не запускается</summary><p>Убери из папки <code>mods</code> старые версии Kubik Client — два мода Kubik сразу не запустятся. Скачай свежую сборку по ссылке выше. Если вылет остался — пришли начало crash-отчёта в Discord.</p></details>
     <details><summary>Браузер скачивает только мод вместо сборки</summary><p>Не скачивай <code>.mrpack</code> браузером: в Prism нажми Add Instance → Import и вставь ссылку — Prism скачает сам.</p></details>
     <details><summary>Где мой ID и как получить подписку?</summary><p>ESC → Kubik Launcher → «Профиль». Назови ID в Discord yttoper1 — подписку выдадут прямо на профиль, вводить ничего не придётся.</p></details>
-    <details><summary>Можно играть на Mac и Android?</summary><p>Да. Kubik Client — обычный мод Fabric, он работает везде, где есть Minecraft Java 1.21.11 с Fabric. На Android — через лаунчеры Java-версии с поддержкой Fabric.</p></details>
+    <details><summary>Windows пишет «Система Windows защитила ваш компьютер»</summary><p>Лаунчер ещё не подписан платным сертификатом. Нажми «Подробнее» → «Выполнить в любом случае».</p></details>
+    <details><summary>Mac пишет, что приложение нельзя открыть</summary><p>Открой «Системные настройки» → «Конфиденциальность и безопасность», внизу нажми «Всё равно открыть». Или в Finder нажми на Kubik Launcher правой кнопкой → «Открыть».</p></details>
+    <details><summary>Можно играть на Mac и Android?</summary><p>Да. На Mac есть Kubik Launcher. Kubik Client — обычный мод Fabric, на Android он работает в лаунчерах Java-версии с поддержкой Fabric.</p></details>
   </div>
 </section>
 
@@ -208,11 +211,11 @@ footer .sp{margin-left:auto}
     btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.6.mrpack";
     hint.textContent = "Сборка для лаунчеров Java-версии с Fabric";
   } else if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) {
-    btn.textContent = "⬇ Скачать для Mac"; btn.href = "mac/";
-    hint.textContent = "Сборка для Prism Launcher · Apple Silicon и Intel";
+    btn.textContent = "⬇ Скачать для Mac"; btn.href = "downloads/KubikLauncher.dmg";
+    hint.textContent = "Kubik Launcher 1.0 · Apple Silicon и Intel";
   } else if (/Windows/i.test(ua)) {
-    btn.textContent = "⬇ Скачать для Windows"; btn.href = "downloads/Kubik-1.0.6.mrpack";
-    hint.textContent = "Сборка для Prism Launcher · Kubik Client 1.0.6";
+    btn.textContent = "⬇ Скачать для Windows"; btn.href = "downloads/KubikLauncher-Setup.exe";
+    hint.textContent = "Kubik Launcher 1.0 · сам ставит Minecraft, Fabric и Kubik";
   } else if (/iPhone|iPad/i.test(ua)) {
     btn.textContent = "📱 Открыть Kubik Mobile"; btn.href = "app/";
     hint.textContent = "Java-версия Minecraft на iPhone не запускается";
