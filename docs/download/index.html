@@ -48,9 +48,11 @@ h2.sec{font-size:20px;margin:34px 0 12px}
   <div class="grid">
     <div class="card">
       <h2>🪟 Windows</h2>
-      <p>Kubik Launcher: сам ставит Minecraft, Fabric и Kubik Client, обновляется автоматически.</p>
-      <a class="btn" id="winBtn" href="https://github.com/toperlutty-bit/Kubik-Launcher/releases/latest">Скачать лаунчер</a>
-      <span class="ver" id="winVer">Последняя версия…</span>
+      <p>Свежий Kubik Client 1.0.6 — через Prism Launcher для Windows, как на Mac и Android.</p>
+      <a class="btn" href="../downloads/Kubik-1.0.6.mrpack" download>Скачать сборку (.mrpack)</a>
+      <a class="btn ghost" href="../downloads/kubik-client-1.0.6.jar" download>Только мод (.jar)</a>
+      <a class="btn ghost" href="../#install">Как установить</a>
+      <span class="ver"><a id="winBtn" href="https://github.com/toperlutty-bit/Kubik-Launcher/releases/latest">Kubik Launcher</a> <span id="winVer"></span> — внутри старая версия клиента, обновление скоро</span>
     </div>
     <div class="card">
       <h2>🍏 macOS</h2>
@@ -119,7 +121,7 @@ const REPO = "toperlutty-bit/Kubik-Launcher";
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 fetch("https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/latest.json?" + Date.now())
   .then(r => r.json()).then(d => {
-    document.getElementById("winVer").textContent = "Версия " + d.version;
+    document.getElementById("winVer").textContent = d.version;
     const url = d.platforms && d.platforms["windows-x86_64"] && d.platforms["windows-x86_64"].url;
     if (url) document.getElementById("winBtn").href = url;
   }).catch(() => { document.getElementById("winVer").textContent = ""; });

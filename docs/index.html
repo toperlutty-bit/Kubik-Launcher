@@ -153,7 +153,7 @@ footer .sp{margin-left:auto}
     <h2>Установка за минуту</h2>
     <p class="sub">Проще всего — через Prism Launcher: он сам поставит Minecraft, Fabric и Kubik.</p>
     <div class="steps">
-      <div class="step"><b>Открой Prism Launcher</b><span>Нет его? <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener">Скачай бесплатно</a>. Windows — можно и через Kubik Launcher.</span></div>
+      <div class="step"><b>Открой Prism Launcher</b><span>Нет его? <a href="https://prismlauncher.org/download/" target="_blank" rel="noopener">Скачай бесплатно</a> — есть для Windows, Mac и Linux.</span></div>
       <div class="step"><b>Add Instance → Import</b><span>Вставь ссылку:<br><code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.6.mrpack</code></span></div>
       <div class="step"><b>Нажми Launch</b><span>Появится зелёное меню Kubik. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
     </div>
@@ -211,13 +211,8 @@ footer .sp{margin-left:auto}
     btn.textContent = "⬇ Скачать для Mac"; btn.href = "mac/";
     hint.textContent = "Сборка для Prism Launcher · Apple Silicon и Intel";
   } else if (/Windows/i.test(ua)) {
-    btn.textContent = "⬇ Скачать для Windows";
-    fetch("https://raw.githubusercontent.com/toperlutty-bit/kubik-launcher/main/latest.json?" + Date.now())
-      .then(r => r.json()).then(d => {
-        const url = d.platforms && d.platforms["windows-x86_64"] && d.platforms["windows-x86_64"].url;
-        if (url) btn.href = url;
-        hint.textContent = "Kubik Launcher " + d.version + " · обновляется сам";
-      }).catch(() => {});
+    btn.textContent = "⬇ Скачать для Windows"; btn.href = "downloads/Kubik-1.0.6.mrpack";
+    hint.textContent = "Сборка для Prism Launcher · Kubik Client 1.0.6";
   } else if (/iPhone|iPad/i.test(ua)) {
     btn.textContent = "📱 Открыть Kubik Mobile"; btn.href = "app/";
     hint.textContent = "Java-версия Minecraft на iPhone не запускается";
