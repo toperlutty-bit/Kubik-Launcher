@@ -25,6 +25,7 @@ a{color:var(--green)}
 .btn{display:flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:12px;background:var(--green);color:#04210f;font-weight:700;text-decoration:none;text-align:center}
 .btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green2)}
 .ver{font-size:13px;color:var(--muted)}
+.card .tag{align-self:flex-start}
 h2.sec{font-size:20px;margin:34px 0 12px}
 .log{display:flex;flex-direction:column;gap:12px}
 .entry{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
@@ -48,7 +49,8 @@ h2.sec{font-size:20px;margin:34px 0 12px}
   <div class="grid">
     <div class="card">
       <h2>🪟 Windows</h2>
-      <p>Новый Kubik Launcher 1.0: сам ставит Minecraft 1.21.11, Java, Fabric и свежий Kubik Client. Аккаунт и ключи — прямо в лаунчере.</p>
+      <p>Kubik Launcher сам ставит Minecraft 1.21.11, Java, Fabric и последний Kubik Client. Аккаунт и ключи — прямо в лаунчере.</p>
+      <span class="tag">Kubik Client 1.0.7 · лаунчер 1.0</span>
       <a class="btn" href="../downloads/KubikLauncher-Setup.exe" download>Скачать Kubik Launcher</a>
       <a class="btn ghost" href="../downloads/Kubik-1.0.7.mrpack" download>Сборка для Prism (.mrpack)</a>
       <a class="btn ghost" href="../downloads/kubik-client-1.0.7.jar" download>Только мод (.jar)</a>
@@ -56,7 +58,8 @@ h2.sec{font-size:20px;margin:34px 0 12px}
     </div>
     <div class="card">
       <h2>🍏 macOS</h2>
-      <p>Тот же Kubik Launcher 1.0 для Mac на Apple Silicon (M1–M4) и Intel. Открой .dmg и перетащи Kubik Launcher в «Программы».</p>
+      <p>Тот же Kubik Launcher для Mac на Apple Silicon (M1–M4) и Intel. Открой .dmg и перетащи Kubik Launcher в «Программы».</p>
+      <span class="tag">Kubik Client 1.0.7 · лаунчер 1.0</span>
       <a class="btn" href="../downloads/KubikLauncher.dmg" download>Скачать Kubik Launcher</a>
       <a class="btn ghost" href="../downloads/Kubik-1.0.7.mrpack" download>Сборка для Prism (.mrpack)</a>
       <a class="btn ghost" href="../mac/">Как установить</a>
@@ -65,6 +68,7 @@ h2.sec{font-size:20px;margin:34px 0 12px}
     <div class="card">
       <h2>🤖 Android</h2>
       <p>Тот же мод работает в лаунчерах Java-версии для Android с поддержкой Fabric. Сборка 1.21.11 + Fabric, мод в папку <code>mods</code>.</p>
+      <span class="tag">Kubik Client 1.0.7</span>
       <a class="btn" href="../downloads/Kubik-1.0.7.mrpack" download>Скачать сборку (.mrpack)</a>
       <a class="btn ghost" href="../downloads/kubik-client-1.0.7.jar" download>Только мод (.jar)</a>
       <span class="ver">На Android пока не тестировалось</span>
