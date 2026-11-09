@@ -169,8 +169,8 @@ footer .sp{margin-left:auto}
       <div class="step"><b>Нажми «Играть»</b><span>Первый запуск качает игру пару минут. Меню клиента — правый Shift, панель Kubik — ESC.</span></div>
     </div>
     <p class="sub" style="margin-top:22px">Шейдеры в комплекте: <a href="https://modrinth.com/shader/complementary-reimagined" target="_blank" rel="noopener">Complementary Reimagined</a> от EminGT, а для слабых ПК — <a href="https://modrinth.com/shader/makeup-ultra-fast-shaders" target="_blank" rel="noopener">MakeUp Ultra Fast</a> от KDXavier. Плюс Sodium и Iris.</p>
-    <p class="sub" style="margin-top:10px">Есть Prism Launcher? Add Instance → Import и вставь ссылку <code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.10.mrpack</code></p>
-    <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.10.jar" download>kubik-client-1.0.10.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
+    <p class="sub" style="margin-top:10px">Есть Prism Launcher? Add Instance → Import и вставь ссылку <code id="packUrl">https://toperlutty-bit.github.io/Kubik-Launcher/downloads/Kubik-1.0.11.mrpack</code></p>
+    <p class="sub" style="margin-top:22px">Только мод для своей сборки Fabric 1.21.11 — <a href="downloads/kubik-client-1.0.11.jar" download>kubik-client-1.0.11.jar</a> (Fabric API уже внутри). <a href="download/">Подробнее для всех платформ</a></p>
   </div>
 </section>
 
@@ -220,14 +220,14 @@ footer .sp{margin-left:auto}
   const ua = navigator.userAgent;
   const btn = document.getElementById("mainBtn"), hint = document.getElementById("mainHint");
   if (/Android/i.test(ua)) {
-    btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.10.mrpack";
+    btn.textContent = "⬇ Скачать для Android"; btn.href = "downloads/Kubik-1.0.11.mrpack";
     hint.textContent = "Сборка для лаунчеров Java-версии с Fabric";
   } else if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) {
     btn.textContent = "⬇ Скачать для Mac"; btn.href = "downloads/KubikLauncher.dmg";
-    hint.textContent = "Kubik 1.0.10 · Apple Silicon и Intel";
+    hint.textContent = "Kubik 1.0.11 · Apple Silicon и Intel";
   } else if (/Windows/i.test(ua)) {
     btn.textContent = "⬇ Скачать для Windows"; btn.href = "downloads/KubikLauncher-Setup.exe";
-    hint.textContent = "Kubik 1.0.10 · сам ставит Minecraft, Fabric и мод";
+    hint.textContent = "Kubik 1.0.11 · сам ставит Minecraft, Fabric и мод";
   } else if (/iPhone|iPad/i.test(ua)) {
     btn.textContent = "📱 Открыть Kubik Mobile"; btn.href = "app/";
     hint.textContent = "Java-версия Minecraft на iPhone не запускается";
